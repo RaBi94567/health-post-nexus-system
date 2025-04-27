@@ -57,10 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="auth-header">
             <div class="logo">
                 <i class="fas fa-hospital-alt"></i>
-                <h2>HPMS</h2>
+                <h2>Health Post Management System</h2>
             </div>
-            <h1>Welcome Back!</h1>
-            <p>Enter your credentials to access your account</p>
+            <h1>Welcome Back</h1>
+            <p>Login to manage your health post services</p>
         </div>
         
         <?php if (isset($_SESSION['flash_message'])): ?>
@@ -72,14 +72,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="auth-form">
             <div class="form-group">
-                <label for="username"><i class="fas fa-user"></i> Username</label>
-                <input type="text" id="username" name="username" required>
+                <label for="username">
+                    <i class="fas fa-user"></i>
+                    <span>Username</span>
+                </label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
             </div>
             
             <div class="form-group">
-                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                    <span>Password</span>
+                </label>
                 <div class="password-input">
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
                     <i class="fas fa-eye toggle-password"></i>
                 </div>
             </div>
@@ -87,16 +93,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group remember-forgot">
                 <div class="remember-me">
                     <input type="checkbox" id="remember" name="remember">
-                    <label for="remember">Remember me</label>
+                    <label for="remember">Keep me logged in</label>
                 </div>
-                <a href="#" class="forgot-password">Forgot Password?</a>
+                <a href="forgot-password.php" class="forgot-password">Forgot Password?</a>
             </div>
             
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
         </form>
         
         <div class="auth-footer">
-            <p>Don't have an account? <a href="register.php">Register</a></p>
+            <p>Don't have an account? <a href="register.php">Create Account</a></p>
         </div>
     </div>
 </div>

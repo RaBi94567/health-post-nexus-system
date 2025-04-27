@@ -92,10 +92,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="auth-header">
             <div class="logo">
                 <i class="fas fa-hospital-alt"></i>
-                <h2>HPMS</h2>
+                <h2>Health Post Management System</h2>
             </div>
             <h1>Create Account</h1>
-            <p>Register to access the Health Post Management System</p>
+            <p>Join us to manage health services efficiently</p>
         </div>
         
         <?php if (isset($_SESSION['flash_message'])): ?>
@@ -106,34 +106,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
         
         <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="auth-form">
-            <div class="form-group">
-                <label for="full_name"><i class="fas fa-user"></i> Full Name</label>
-                <input type="text" id="full_name" name="full_name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="username"><i class="fas fa-user-tag"></i> Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="password"><i class="fas fa-lock"></i> Password</label>
-                <div class="password-input">
-                    <input type="password" id="password" name="password" required>
-                    <i class="fas fa-eye toggle-password"></i>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="full_name">
+                        <i class="fas fa-user"></i>
+                        <span>Full Name</span>
+                    </label>
+                    <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user-tag"></i>
+                        <span>Username</span>
+                    </label>
+                    <input type="text" id="username" name="username" placeholder="Choose a username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Address</span>
+                    </label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 </div>
             </div>
             
-            <div class="form-group">
-                <label for="confirm_password"><i class="fas fa-lock"></i> Confirm Password</label>
-                <div class="password-input">
-                    <input type="password" id="confirm_password" name="confirm_password" required>
-                    <i class="fas fa-eye toggle-password"></i>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        <span>Password</span>
+                    </label>
+                    <div class="password-input">
+                        <input type="password" id="password" name="password" placeholder="Create a password" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm_password">
+                        <i class="fas fa-lock"></i>
+                        <span>Confirm Password</span>
+                    </label>
+                    <div class="password-input">
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
                 </div>
             </div>
             
@@ -142,11 +161,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
             </div>
             
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
         </form>
         
         <div class="auth-footer">
-            <p>Already have an account? <a href="login.php">Login</a></p>
+            <p>Already have an account? <a href="login.php">Sign In</a></p>
         </div>
     </div>
 </div>

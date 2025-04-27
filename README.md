@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
 
-## Project info
+# Health Post Management System
 
-**URL**: https://lovable.dev/projects/a8d54840-5ab2-44c4-905b-1eed64ea5847
+A comprehensive PHP-based system for managing health posts and clinics.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- User authentication (login/register)
+- Employee management
+- Department management
+- Appointments tracking
+- Patient records
+- Medicine inventory
+- Staff scheduling
+- Modern and responsive UI
 
-**Use Lovable**
+## Setup Instructions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a8d54840-5ab2-44c4-905b-1eed64ea5847) and start prompting.
+1. Set up a web server with PHP (7.4+) and MySQL (5.7+)
+2. Create a database named `aatish` in MySQL
+3. Import the `aatish.sql` file to set up the database schema
+4. Place all files in your web server's document root
+5. Create an `assets/images` directory and ensure it's writable by your web server
+6. Navigate to the application in your web browser
 
-Changes made via Lovable will be committed automatically to this repo.
+## Default Login
 
-**Use your preferred IDE**
+- Username: `admin`
+- Password: `password`
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Directory Structure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- `/` - Root directory containing main pages
+- `/assets/` - Contains images and other resources
+- `/assets/images/` - Contains user profile images and system images
 
-Follow these steps:
+## Technologies Used
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- PHP
+- MySQL
+- HTML5
+- CSS3
+- JavaScript
+- Font Awesome
+- Chart.js
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Requirements
 
-# Step 3: Install the necessary dependencies.
-npm i
+- PHP 7.4 or higher
+- MySQL 5.7 or higher
+- Modern web browser (Chrome, Firefox, Edge, etc.)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## Security Notes
 
-**Edit a file directly in GitHub**
+1. Change the default admin password after first login
+2. Set appropriate permissions on files and directories
+3. Consider implementing additional security measures for a production environment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## License
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a8d54840-5ab2-44c4-905b-1eed64ea5847) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is for educational purposes only.

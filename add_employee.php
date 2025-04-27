@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = sanitize_input($_POST['role']);
     
     // Employee data
-    $emp_id = sanitize_input($_POST['emp_id']);
+    $employee_code = sanitize_input($_POST['employee_code']);
     $department_id = sanitize_input($_POST['department_id']);
     $position = sanitize_input($_POST['position']);
     $specialization = isset($_POST['specialization']) ? sanitize_input($_POST['specialization']) : null;
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Check required fields
     if (empty($username) || empty($password) || empty($email) || empty($full_name) || empty($role) ||
-        empty($emp_id) || empty($department_id) || empty($position) || empty($join_date)) {
+        empty($employee_code) || empty($department_id) || empty($position) || empty($join_date)) {
         $errors[] = 'Please fill in all required fields';
     }
     
@@ -61,8 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Check if employee ID already exists
-    $stmt = $conn->prepare("SELECT id FROM employees WHERE emp_id = :emp_id");
-    $stmt->bindParam(':emp_id', $emp_id);
+    $stmt = $conn->prepare("SELECT id FROM employees WHERE employee_code = :employee_code");
+    $stmt->bindParam(':employee_code', $employee_code);
     $stmt->execute();
     
     if ($stmt->rowCount() > 0) {
@@ -113,9 +113,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user_id = $conn->lastInsertId();
             
             // Insert employee
-            $stmt = $conn->prepare("INSERT INTO employees (user_id, emp_id, department_id, position, specialization, join_date, salary, contact_number, address, status) VALUES (:user_id, :emp_id, :department_id, :position, :specialization, :join_date, :salary, :contact_number, :address, :status)");
+            $stmt = $conn->prepare("INSERT INTO employees (user_id, employee_code, department_id, position, specialization, join_date, salary, contact_number, address, status) VALUES (:user_id, :employee_code, :department_id, :position, :specialization, :join_date, :salary, :contact_number, :address, :status)");
             $stmt->bindParam(':user_id', $user_id);
-            $stmt->bindParam(':emp_id', $emp_id);
+            $stmt->bindParam(':employee_code', $employee_code);
             $stmt->bindParam(':department_id', $department_id);
             $stmt->bindParam(':position', $position);
             $stmt->bindParam(':specialization', $specialization);
@@ -228,8 +228,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h2>Employment Information</h2>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="emp_id">Employee ID *</label>
-                            <input type="text" id="emp_id" name="emp_id" required>
+                            <label for="employee_code">Employee ID *</label>
+                            <input type="text" id="employee_code" name="employee_code" required>
                         </div>
                         
                         <div class="form-group">
@@ -267,6 +267,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <select id="status" name="status" required>
                                 <option value="active" selected>Active</option>
                                 <option value="inactive">Inactive</option>
+                                <option value="on_leave">On Leave</option>
                             </select>
                         </div>
                     </div>
@@ -322,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Generate a random 3-digit number
             const random = Math.floor(Math.random() * 900) + 100;
             
-            document.getElementById('emp_id').value = prefix + random;
+            document.getElementById('employee_code').value = prefix + departmentId + random;
         }
     };
     

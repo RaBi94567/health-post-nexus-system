@@ -1,2 +1,3 @@
 
-# This file ensures the images directory is created
+# This directory contains user profile images and other system images
+# The .gitkeep file ensures the directory is included in version control

@@ -111,7 +111,7 @@ $active_doctors = get_employee_count('active', 'doctor');
                     <div class="employee-image">
                         <img src="assets/images/<?= !empty($employee['profile_image']) ? $employee['profile_image'] : 'default.jpg' ?>" alt="<?= $employee['full_name'] ?>">
                     </div>
-                    <div class="employee-id">EMP ID: <?= $employee['emp_id'] ?></div>
+                    <div class="employee-id">EMP ID: <?= $employee['employee_code'] ?></div>
                     <div class="employee-name"><?= $employee['full_name'] ?></div>
                     <div class="employee-position"><?= $employee['position'] ?></div>
                     <div class="employee-details">
@@ -150,7 +150,7 @@ $active_doctors = get_employee_count('active', 'doctor');
                     <div class="employee-image">
                         <img src="assets/images/<?= !empty($employee['profile_image']) ? $employee['profile_image'] : 'default.jpg' ?>" alt="<?= $employee['full_name'] ?>">
                     </div>
-                    <div class="employee-id">EMP ID: <?= $employee['emp_id'] ?></div>
+                    <div class="employee-id">EMP ID: <?= $employee['employee_code'] ?></div>
                     <div class="employee-name"><?= $employee['full_name'] ?></div>
                     <div class="employee-position"><?= $employee['position'] ?></div>
                     <div class="employee-details">

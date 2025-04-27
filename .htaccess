@@ -1,0 +1,53 @@
+
+# Prevent direct access to PHP files
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Prevent access to the .git directory
+RedirectMatch 404 /\.git
+
+# Enable rewriting
+RewriteEngine On
+RewriteBase /
+
+# Redirect to HTTPS if not already
+# Uncomment these lines when deploying to production
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Prevent directory listing
+Options -Indexes
+
+# PHP error handling
+php_flag display_errors Off
+php_value error_reporting E_ALL & ~E_DEPRECATED & ~E_STRICT
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# Prevent access to sensitive files
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+    Order Allow,Deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https:; img-src 'self' data: https:;"
+    # Cache control
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|woff|woff2|ttf|svg)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>
+
+# Enable compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>
